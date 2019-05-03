@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:gauge="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/fondo"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FragmentRadiacion">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/actualRadiacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:fontFamily="sans-serif-thin"
+            android:text="Radiación actual: "
+            android:textAlignment="center"
+            android:textColor="@color/black2"
+            android:textSize="30sp"
+            android:autoSizeTextType="uniform"
+            android:autoSizeMinTextSize="12sp"
+            android:autoSizeMaxTextSize="30sp"
+            android:autoSizeStepGranularity="2sp"
+            android:textStyle="bold|italic" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight='40'
+        android:orientation="horizontal">
+
+      <!--  <com.github.anastr.speedviewlib.SpeedView
+            android:id="@+id/gaugeRadiacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:layout_marginEnd="80dp"
+            android:layout_gravity="center"
+            app:sv_highSpeedColor="@color/purple"
+            app:sv_lowSpeedColor="@color/yellow"
+            app:sv_mediumSpeedColor="@color/red" />-->
+
+        <de.nitri.gauge.Gauge
+            android:id="@+id/gaugeRadiacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            gauge:initialValue="0"
+            gauge:maxValue="1600"
+            gauge:minValue="0"
+            gauge:totalNicks="180"
+            gauge:valuePerNick="10"
+            gauge:labelTextSize="42"
+            gauge:upperText="nm"
+            gauge:faceColor="@color/white"
+            gauge:scaleColor="@color/navy"
+            gauge:needleColor="@color/red"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight='30'
+        android:background="#65FFFFFF"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/promedioRadiacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="sans-serif-thin"
+            android:text="Promedio del día: "
+            android:textAllCaps="false"
+            android:textAlignment="center"
+            android:textColor="@color/black2"
+            android:textSize="20sp"
+            android:textStyle="bold|italic" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="5"
+        android:background="#65FFFFFF"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_weight="1"
+            android:background="?android:attr/windowBackground"
+            android:text="Actualizar Medición" />
+    </LinearLayout>
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/nav_radiacion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+
+</LinearLayout>
